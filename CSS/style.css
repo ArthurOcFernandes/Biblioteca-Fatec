@@ -31,7 +31,7 @@ nav {
 main {
     background: url("../IMG/home.svg") no-repeat center center;
     background-size: auto;
-    height: 92vh;
+    height: 50vh;
 
 }
 
@@ -75,6 +75,7 @@ main {
     height: 300px;
     transform: translateX(0);
     transition: all 1s ease-in-out;
+
 }
 
 .book-list-item {

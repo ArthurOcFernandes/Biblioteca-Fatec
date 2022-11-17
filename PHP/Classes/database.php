@@ -56,6 +56,22 @@ QUERY;
         return null;
     }
 
+    static function selectUsuario($user, $conn): ?Usuario
+    {
+
+        $conn->query("USE biblioteca");
+        $SQL = "SELECT * FROM usuario WHERE usuario.user = '$user'";
+        $result = $conn->query($SQL);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+
+            return new Usuario($row['nome'], $row['user'], $row['id']);
+
+        }
+        return null;
+    }
+
     static function selectAllLivro($conn)
     {
         $conn->query("USE biblioteca");

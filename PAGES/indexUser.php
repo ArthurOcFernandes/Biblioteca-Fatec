@@ -1,12 +1,12 @@
 <?php
-require_once("./Classes/Usuario.php");
-require_once ("./Classes/database.php");
+require_once("../PHP/Classes/Usuario.php");
+require_once("../PHP/Classes/database.php");
 
 if(!isset($_SESSION)) session_start();
 
-if(!isset($_SESSION['userID']) OR( $_SESSION['tipoUsuario'] != 1)){
+if(!isset($_SESSION['userID'])){
     session_destroy();
-    header("Location: ../HTML/index.php");
+    header("Location: ../PAGES/index.php");
     exit();
 }
 
@@ -34,11 +34,6 @@ echo <<<HTML
   <header>
     <nav>
       <a class="logo" href="#">Livros</a>
-      <div class="mobile-menu">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-      </div>
     </nav>
   </header>
   
@@ -54,11 +49,11 @@ HTML;
 foreach ($livros as $row) {
     echo <<<HTML
           
-            <div class="book-list-item">
-              <img class="book-list-item-img" src="../IMG/$row[tombo].jpg" alt="">
-              <p class="book-list-item-title">$row[titulo]</p>
-              <p class="book-list-item-autor">Autor: $row[autor]</p>
-            </div>
+                <div class="book-list-item">
+                  <img class="book-list-item-img" src="../IMG/$row[tombo].jpg" alt="">
+                  <span class="book-list-item-title">$row[titulo]</span>
+                  <p class="book-list-item-desc">Autor: $row[autor]</p>
+                </div>
           
 HTML;
 }
@@ -77,4 +72,4 @@ END;
 
 
 
-database::close($conn);
+

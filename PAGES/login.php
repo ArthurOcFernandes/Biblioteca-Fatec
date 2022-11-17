@@ -1,6 +1,6 @@
 <?php
 
-require_once("./Classes/database.php");
+require_once("../PHP/Classes/database.php");
 
 /**
  * @throws Exception
@@ -58,5 +58,5 @@ try {
         exit();
     } else echo 'Wrong credentials';
 } catch (Exception $e) {
-    echo "User does not exist <a href='../HTML/index.php'>go back</a>";
+    echo "User does not exist <a href='index.php'>go back</a>";
 }
