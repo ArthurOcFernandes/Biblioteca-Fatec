@@ -1,6 +1,6 @@
 <?php
 
-require("./Classes/database.php");
+require_once("./Classes/database.php");
 
 /**
  * @throws Exception

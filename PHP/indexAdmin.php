@@ -8,7 +8,7 @@ if (!isset($_SESSION['userID']) or ($_SESSION['tipoUsuario'] != 3)) {
     header("Location: ../HTML/index.php");
     exit();
 }
+$user = new Administrador($_SESSION['name'], $_SESSION['username'], $_SESSION['userID']);
 
-echo <<<ADM
-    logado como $_SESSION[name] ADM
-ADM;
+$nome = $user->getNome();
+echo "<h1>logado como $nome</h1>";
