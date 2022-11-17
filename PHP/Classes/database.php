@@ -56,6 +56,30 @@ QUERY;
         return null;
     }
 
+    static function selectAllLivro($conn)
+    {
+        $conn->query("USE biblioteca");
+        $SQL = "SELECT * FROM livro";
+        $result = $conn->query($SQL);
+
+        if ($result->num_rows > 0) {
+            return $result;
+        }
+        return null;
+    }
+
+    static function selectLivrosEmprestados($conn)
+    {
+        $conn->query("USE biblioteca");
+        $SQL = "SELECT livro.tombo as tombo, livro.titulo as titulo, livro.autor as autor, livro.emprestado as emprestado, usuario.nome as usuario FROM livro  inner join usuario inner join emprestimo on emprestimo.usuario = usuario.id and emprestimo.livro = livro.tombo";
+        $result = $conn->query($SQL);
+
+        if ($result->num_rows > 0) {
+            return $result;
+        }
+        return null;
+    }
+
     static function insertEmprestimo(Livro $livro, Usuario $usuario, $conn): bool
     {
 
